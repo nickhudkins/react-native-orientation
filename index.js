@@ -8,8 +8,16 @@ module.exports = {
   lockToPortrait() {
     Orientation.lockToPortrait();
   },
-  lockToLandscape() {
-    Orientation.lockToLandscape();
+  lockToLandscape(direction) {
+    if (direction) {
+      if (direction === 'LEFT') {
+        Orientation.lockToLandscapeLeft();
+      } else if (direction === 'RIGHT') {
+        Orientation.lockToLandscapeRight();
+      }
+    } else {
+      Orientation.lockToLandscape();
+    }
   },
   unlockAllOrientations() {
     Orientation.unlockAllOrientations();

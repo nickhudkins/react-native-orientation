@@ -20,6 +20,12 @@
     case 3:
       return UIInterfaceOrientationMaskAllButUpsideDown;
       break;
+    case 4:
+      return UIDeviceOrientationLandscapeLeft
+      break;
+    case 5:
+      return UIDeviceOrientationLandscapeRight
+      break;
     default:
       return UIInterfaceOrientationMaskPortrait;
       break;
@@ -93,31 +99,35 @@ RCT_EXPORT_METHOD(getOrientation:(RCTResponseSenderBlock)callback)
   callback(@[[NSNull null], orientationStr]);
 }
 
+
+RCT_EXPORT_METHOD(lockToLandscapeLeft)
+{
+  NSLog(@"Locked to LandscapeLeft");
+  [Orientation setOrientation:4];
+}
+RCT_EXPORT_METHOD(lockToLandscapeRight)
+{
+  NSLog(@"Locked to LandscapeRight");
+  [Orientation setOrientation:5];
+}
+
+
 RCT_EXPORT_METHOD(lockToPortrait)
 {
   NSLog(@"Locked to Portrait");
   [Orientation setOrientation:1];
-//  AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//  delegate.orientation = 1;
-
 }
 
 RCT_EXPORT_METHOD(lockToLandscape)
 {
   NSLog(@"Locked to Landscape");
   [Orientation setOrientation:2];
-//  AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//  delegate.orientation = 2;
-
 }
 
 RCT_EXPORT_METHOD(unlockAllOrientations)
 {
   NSLog(@"Unlock All Orientations");
   [Orientation setOrientation:3];
-//  AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//  delegate.orientation = 3;
-
 }
 
 
